@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="IndicatorScrollView">
+        <attr name="drawableSize" format="dimension"/>
+        <attr name="drawableMargin" format="dimension"/>
+        <attr name="isScroll" format="boolean"/>
+        <attr name="scrollCount" format="integer"/>
+        <attr name="drawableSelect" format="reference"/>
+        <attr name="drawableUnSelect" format="reference"/>
+    </declare-styleable>
+</resources>

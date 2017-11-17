@@ -19,6 +19,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
+import com.wisn.guidePage.view.IndicatorScrollView;
 import com.wisn.guidePage.view.IndicatorView;
 
 import java.util.ArrayList;
@@ -42,6 +43,8 @@ public class GuidePageActivity extends Activity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+//        startActivity(new Intent(GuidePageActivity.this, MainActivity.class));
+//        GuidePageActivity.this.finish();
         noTitleBar();
         setContentView(R.layout.activity_guidepage);
         initView();
@@ -102,9 +105,11 @@ public class GuidePageActivity extends Activity {
         mRootView = (RelativeLayout) findViewById(R.id.rootView);
         mIndicator = (LinearLayout) findViewById(R.id.indicator);
         IndicatorView indicatorView = (IndicatorView) findViewById(R.id.IndicatorView);
+        IndicatorScrollView IndicatorScrollView = (IndicatorScrollView) findViewById(R.id.IndicatorScrollView);
         indicatorView.setConfig(this,4,BitmapFactory.decodeResource(getResources(), R.drawable.ic_dot_default),
                                 BitmapFactory.decodeResource(getResources(), R.drawable.ic_dot_selected));
         mMGuideViewPager.addOnPageChangeListener(indicatorView);
+        mMGuideViewPager.addOnPageChangeListener(IndicatorScrollView);
     }
 
 
