@@ -1,23 +1,24 @@
-package com.wisn.guidePage.view;
+package com.want.guidepagelib.view;
 
 import android.animation.ValueAnimator;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.animation.LinearInterpolator;
 
-import com.wisn.guidePage.R;
+import com.want.guidepagelib.R;
+
 
 /**
  * Created by wisn on 2017/11/20.
  */
 
 public class CountdownView extends View {
-    public static final String TAG = "CountdownView";
     //圆轮颜色
     private int mRingColor;
     //圆轮宽度
@@ -58,13 +59,11 @@ public class CountdownView extends View {
         if (attrs == null) return;
         TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.CountDownView);
         mRingColor =
-                a.getColor(R.styleable.CountDownView_ringColor,
-                           context.getResources().getColor(R.color.colorAccent));
+                a.getColor(R.styleable.CountDownView_ringColor,Color.BLUE);
         mRingWidth = a.getFloat(R.styleable.CountDownView_ringWidth, 40);
         mRingProgessTextSize = a.getDimensionPixelSize(R.styleable.CountDownView_progressTextSize, 0);
         mProgessTextColor =
-                a.getColor(R.styleable.CountDownView_progressTextColor,
-                           context.getResources().getColor(R.color.colorAccent));
+                a.getColor(R.styleable.CountDownView_progressTextColor,Color.RED);
         mCountdownTime = a.getInteger(R.styleable.CountDownView_countdownTime, 60);
         progressText = (String) a.getText(R.styleable.CountDownView_progressText);
         a.recycle();
