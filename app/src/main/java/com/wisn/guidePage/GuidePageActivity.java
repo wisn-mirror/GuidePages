@@ -15,9 +15,9 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
+import com.wisn.guidePage.view.CountdownView;
 import com.wisn.guidePage.view.IndicatorScrollView;
 
 import java.util.ArrayList;
@@ -36,10 +36,13 @@ public class GuidePageActivity extends Activity {
     private ArgbEvaluator mMArgbEvaluator;
     private RelativeLayout mRootView;
     private int colorBg[];
+    private CountdownView countdownView;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+//        startActivity(new Intent(GuidePageActivity.this, MainActivity.class));
+//        GuidePageActivity.this.finish();
         noTitleBar();
         setContentView(R.layout.activity_guidepage);
         initView();
@@ -61,8 +64,19 @@ public class GuidePageActivity extends Activity {
             public void onPageSelected(int position) {
                 if (position >= mImageViewList.size() - 1) {
                     start.setVisibility(View.VISIBLE);
+                    countdownView.startCountDown();
+                    countdownView.setVisibility(View.VISIBLE);
+                    countdownView.setAddCountDownListener(new CountdownView.OnCountDownFinishListener() {
+                        @Override
+                        public void countDownFinished() {
+                            startActivity(new Intent(GuidePageActivity.this, MainActivity.class));
+                            GuidePageActivity.this.finish();
+                        }
+                    });
                 } else {
                     start.setVisibility(View.GONE);
+                    countdownView.cancelCountDown();
+                    countdownView.setVisibility(View.GONE);
                 }
             }
 
@@ -98,13 +112,10 @@ public class GuidePageActivity extends Activity {
         mMGuideViewPager = (ViewPager) findViewById(R.id.vp_guide);
         start = (Button) findViewById(R.id.btn_start);
         mRootView = (RelativeLayout) findViewById(R.id.rootView);
-//        mIndicator = (LinearLayout) findViewById(R.id.indicator);
-//        IndicatorView indicatorView = (IndicatorView) findViewById(R.id.IndicatorView);
+        countdownView = (CountdownView) findViewById(R.id.CountdownView);
         IndicatorScrollView IndicatorScrollView = (IndicatorScrollView) findViewById(R.id.IndicatorScrollView);
-//        indicatorView.setConfig(this,4,BitmapFactory.decodeResource(getResources(), R.drawable.ic_dot_default),
-//                                BitmapFactory.decodeResource(getResources(), R.drawable.ic_dot_selected));
-//        mMGuideViewPager.addOnPageChangeListener(indicatorView);
         mMGuideViewPager.addOnPageChangeListener(IndicatorScrollView);
+
     }
 
 
