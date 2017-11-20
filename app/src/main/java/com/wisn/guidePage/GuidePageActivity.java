@@ -4,7 +4,6 @@ import android.animation.ArgbEvaluator;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.res.TypedArray;
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.view.PagerAdapter;
@@ -20,7 +19,6 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
 import com.wisn.guidePage.view.IndicatorScrollView;
-import com.wisn.guidePage.view.IndicatorView;
 
 import java.util.ArrayList;
 
@@ -38,13 +36,10 @@ public class GuidePageActivity extends Activity {
     private ArgbEvaluator mMArgbEvaluator;
     private RelativeLayout mRootView;
     private int colorBg[];
-    private LinearLayout mIndicator;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        startActivity(new Intent(GuidePageActivity.this, MainActivity.class));
-//        GuidePageActivity.this.finish();
         noTitleBar();
         setContentView(R.layout.activity_guidepage);
         initView();
@@ -103,12 +98,12 @@ public class GuidePageActivity extends Activity {
         mMGuideViewPager = (ViewPager) findViewById(R.id.vp_guide);
         start = (Button) findViewById(R.id.btn_start);
         mRootView = (RelativeLayout) findViewById(R.id.rootView);
-        mIndicator = (LinearLayout) findViewById(R.id.indicator);
-        IndicatorView indicatorView = (IndicatorView) findViewById(R.id.IndicatorView);
+//        mIndicator = (LinearLayout) findViewById(R.id.indicator);
+//        IndicatorView indicatorView = (IndicatorView) findViewById(R.id.IndicatorView);
         IndicatorScrollView IndicatorScrollView = (IndicatorScrollView) findViewById(R.id.IndicatorScrollView);
-        indicatorView.setConfig(this,4,BitmapFactory.decodeResource(getResources(), R.drawable.ic_dot_default),
-                                BitmapFactory.decodeResource(getResources(), R.drawable.ic_dot_selected));
-        mMGuideViewPager.addOnPageChangeListener(indicatorView);
+//        indicatorView.setConfig(this,4,BitmapFactory.decodeResource(getResources(), R.drawable.ic_dot_default),
+//                                BitmapFactory.decodeResource(getResources(), R.drawable.ic_dot_selected));
+//        mMGuideViewPager.addOnPageChangeListener(indicatorView);
         mMGuideViewPager.addOnPageChangeListener(IndicatorScrollView);
     }
 
