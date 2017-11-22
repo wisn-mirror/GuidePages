@@ -41,8 +41,6 @@ public class GuidePageActivity extends Activity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        startActivity(new Intent(GuidePageActivity.this, MainActivity.class));
-//        GuidePageActivity.this.finish();
         noTitleBar();
         setContentView(R.layout.activity_guidepage);
         initView();
