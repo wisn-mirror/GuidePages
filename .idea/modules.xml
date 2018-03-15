@@ -3,7 +3,10 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/GuidePages.iml" filepath="$PROJECT_DIR$/GuidePages.iml" />
+      <module fileurl="file://$PROJECT_DIR$/GuidePages.iml" filepath="$PROJECT_DIR$/GuidePages.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/guidepagelib/guidepagelib.iml" filepath="$PROJECT_DIR$/guidepagelib/guidepagelib.iml" />
       <module fileurl="file://$PROJECT_DIR$/guidepagelib/guidepagelib.iml" filepath="$PROJECT_DIR$/guidepagelib/guidepagelib.iml" />
     </modules>
   </component>

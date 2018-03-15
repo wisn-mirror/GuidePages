@@ -46,7 +46,6 @@
         app:drawableSelect="@drawable/ic_dot_default"
         app:drawableSize="20dp"
         app:drawableUnSelect="@drawable/ic_dot_selected"
-        app:isScroll="true"
-        app:scrollCount="4" />
+        app:isScroll="true" />
 
 </RelativeLayout>

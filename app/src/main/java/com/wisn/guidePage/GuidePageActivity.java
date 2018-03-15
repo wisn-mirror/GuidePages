@@ -111,8 +111,9 @@ public class GuidePageActivity extends Activity {
         start = (Button) findViewById(R.id.btn_start);
         mRootView = (RelativeLayout) findViewById(R.id.rootView);
         countdownView = (CountdownView) findViewById(R.id.CountdownView);
-        IndicatorScrollView IndicatorScrollView = (IndicatorScrollView) findViewById(R.id.IndicatorScrollView);
-        mMGuideViewPager.addOnPageChangeListener(IndicatorScrollView);
+        IndicatorScrollView indicatorScrollView = (IndicatorScrollView) findViewById(R.id.IndicatorScrollView);
+        indicatorScrollView.setmScrollCount(getResources().obtainTypedArray(R.array.splash_icon).length());
+        mMGuideViewPager.addOnPageChangeListener(indicatorScrollView);
 
     }
 

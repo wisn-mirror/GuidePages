@@ -60,17 +60,22 @@ public class IndicatorScrollView extends View implements ViewPager.OnPageChangeL
         isScroll = a.getBoolean(R.styleable.IndicatorScrollView_isScroll, true);
         dotDefault =
                 Bitmap.createScaledBitmap(((BitmapDrawable) a.getDrawable(R.styleable.IndicatorScrollView_drawableSelect))
-                                                  .getBitmap(),
-                                          mDrawableSize, mDrawableSize, true);
+                                .getBitmap(),
+                        mDrawableSize, mDrawableSize, true);
         dotSelected =
                 Bitmap.createScaledBitmap(((BitmapDrawable) a.getDrawable(R.styleable.IndicatorScrollView_drawableUnSelect))
-                                                  .getBitmap(), mDrawableSize, mDrawableSize, true);
+                        .getBitmap(), mDrawableSize, mDrawableSize, true);
         a.recycle();
         mMatrix = new Matrix();
         mPaint = new Paint();
         mPaint.setAntiAlias(true);
         mPaint.setFilterBitmap(true);
         mPaint.setTypeface(Typeface.DEFAULT_BOLD);
+    }
+
+    public void setmScrollCount(int mScrollCount) {
+        this.mScrollCount = mScrollCount;
+        invalidate();
     }
 
     @Override
@@ -97,8 +102,8 @@ public class IndicatorScrollView extends View implements ViewPager.OnPageChangeL
             canvas.drawBitmap(this.dotDefault, mMatrix, mPaint);
         }
         mMatrix.setTranslate(mStartWidth +
-                             (mDrawableSize + mDrawableMargin) * mPosition +
-                             (mDrawableSize + mDrawableMargin) * mOffset, 0);
+                (mDrawableSize + mDrawableMargin) * mPosition +
+                (mDrawableSize + mDrawableMargin) * mOffset, 0);
         canvas.drawBitmap(this.dotSelected, mMatrix, mPaint);
         super.onDraw(canvas);
     }

@@ -122,6 +122,11 @@ public class IndicatorScrollView extends View implements ViewPager.OnPageChangeL
         setMeasuredDimension(mWidthSize, mHeightSize);
     }
 
+    public void setmScrollCount(int mScrollCount) {
+        this.mScrollCount = mScrollCount;
+        invalidate();
+    }
+
     @Override
     protected void onDraw(Canvas canvas) {
         for (int i = 0; i < mScrollCount; i++) {
